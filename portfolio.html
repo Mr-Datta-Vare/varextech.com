@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAREX TECH SOLUTION</title>
+
+  <link rel="stylesheet" href="portfolio.css">
+
+  
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+
+  <div class="logo">VAREX TECH SOLUTION</div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+</nav>
+
+<!-- HEADER -->
+<section class="portfolio-header">
+  <h1>Our Portfolio</h1>
+
+  <p>
+    Explore our latest projects and digital solutions
+    delivered for businesses and clients.
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section class="portfolio-container">
+
+  <div class="project-card">
+    <img src="images/business.jpg" alt="">
+    <div class="project-content">
+      <h2>Business Website</h2>
+      <p>Modern responsive company website with animations.</p>
+    <a href="Business-website.html" class="btn">View Project</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <img src="images/app.jpg" alt="">
+    <div class="project-content">
+      <h2>Android App</h2>
+      <p>Powerful Android application with modern UI.</p>
+      <a href="Android-app.html" class="btn">View Project</a>
+    </div>
+  </div>
+
+</section>
+<footer class="footer">
+  <div class="footer-container">
+
+ <!-- Contact Info -->
+    <div class="footer-box">
+       <h2>Varex Tech Solution</h2>
+      <p>VareX Tech Solutions is a trusted technology partner providing <br>Web, Android, Cloud, RPA, and QA services.
+      <p><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+      <p><i class="fas fa-phone"></i> +91 9511954660</p>
+      <p><i class="fas fa-envelope"></i> varextechsolutions@gmail.com</p>
+    </div>
+
+    <!--our services-->
+    <div class="footer-box">
+       <h2>Our Services</h2>
+      <p> Web Development</p>
+      <p>Android Development</p>
+      <p>Cloud Solutions</p>
+      <p>RPA Services</p>
+      <p>QA & Testing</p>
+    </div>
+    <!-- Quick Links -->
+    <div class="footer-box">
+      <h2>Quick Links</h2>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="services.html">Services</a></p>
+      <p><a href="portfolio.html">Portfolio</a></p>
+      <p><a href="contact.html">Contact</a></p>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>© 2026 Varex Tech Solution | All Rights Reserved</p>
+  </div>
+</footer>
+<script>
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+</script>
+
+</body>
+</html>

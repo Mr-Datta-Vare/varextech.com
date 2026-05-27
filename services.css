@@ -1,0 +1,722 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #0f0e0e;
+}
+
+/* Header */
+header {
+   position: relative;
+    color: white;
+    text-align: center;
+    padding: 180px 20px;
+    background-image: url("images/se.jpg");
+    display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;  /* 🔥 moves content to TOP */
+  align-items: center;
+
+  padding-top: 120px; /* 👈 adjust this value */
+}
+header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+header h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: linear-gradient(90deg, #00e5ff, #007BFF);
+    border-radius: 2px;
+}
+header h1:hover {
+    text-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #007BFF,
+        0 0 80px #007BFF;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+header h1{
+    font-size: 70px;
+ 
+    margin-bottom: 20px;
+     letter-spacing: 1px;
+     animation: fadeDown 1s ease;
+      color: #ffffff;
+      font-weight: bold;
+      background: linear-gradient(90deg, #00e5ff, #007BFF);
+    -webkit-background-clip: text;
+    background-size: 300%;
+    background-clip: text;  
+    -webkit-text-fill-color: transparent;
+/* Animation */
+    animation: gradientMove 4s linear infinite;
+
+    /* Neon Glow */
+    text-shadow: 
+        0 0 5px #00e5ff,
+        0 0 10px #00e5ff,
+        0 0 20px #007BFF,
+        0 0 40px #007BFF;
+    /* Glow Effect */
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.7),
+                 0 0 20px rgba(0, 123, 255, 0.5);
+
+    letter-spacing: 2px;
+}
+@keyframes gradientMove {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+header p{
+   max-width: 750px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+       color: #f1f1f1;
+    animation: fadeUp 1.5s ease;
+}
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header h1,
+header p {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 2;
+}
+/* Services Section */
+/* ===== SERVICES RESPONSIVE ===== */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .services {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+/* Service Cards */
+.services-box {
+  position: relative;
+  background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+  padding: 50px;
+  border-radius: 50px;
+  overflow: hidden;
+  color: #fff;
+  transition: 0.4s ease;
+  cursor: pointer;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.services-box {
+  width: 100%;
+  min-height: 320px;
+}
+.services-box h2 {
+margin-bottom: 12px; 
+color: #333;
+
+}
+
+.services-box p {
+color: #faf7f7;
+font-size: 14px;
+line-height: 1.5;
+}
+
+
+/* Hover effect */
+.services-box:hover {
+  transform: translateY(-10px) scale(1.02);
+  background: #0a0f2c;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.service-box:hover h2,
+.service-box:hover p {
+    color: white;
+}
+
+.services-box.active {
+  background: #1e7df1;
+  color: #fff;
+}
+
+/* Service Description Paragraph */
+.service-description {
+max-width: 800px;
+margin: 20px auto;
+font-size: 18px;
+line-height: 1.6;
+color: #555;
+text-align: center;
+padding: 10px 20px;
+}
+.services-box .bg-icon {
+  position: absolute;
+  font-size: 110px;
+  right: 10px;
+  bottom: 10px;
+  color: rgba(255, 255, 255, 0.08);
+  transition: 0.4s ease;
+}
+
+/* Hover icon animation */
+.services-box:hover .bg-icon {
+  transform: scale(1.2) rotate(10deg);
+  color: rgba(255, 255, 255, 0.15);
+}
+
+
+
+.logo {
+color: white;
+font-size: 22px;
+font-weight: bold;
+}
+
+/* Hide menu initially */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin:0;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+
+.navbar {
+  position: fixed;   /* stays on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.6); /* transparent effect */
+  backdrop-filter: blur(10px);
+  z-index: 1000; /* VERY IMPORTANT */
+  box-sizing: border-box;
+}
+
+/* HOVER EFFECT */
+.nav-links a:hover {
+  color: #00c3ff;
+}
+
+
+
+.web-card {
+  background: url("images/web-bg.jpg") no-repeat center center/cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* dark overlay */
+.web-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* keep text visible */
+.web-card h3,
+.web-card p {
+  position: relative;
+  z-index: 1;
+}
+.web-card:hover::before {
+    left: 0;
+}
+.web-card:hover {
+    color: white;
+    box-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #007BFF;
+
+    transform: scale(1.05);
+}
+.web-card {
+    animation: pulseGlow 2s infinite;
+}
+
+
+.android-card {
+  background: url("images/android.jpg") no-repeat center center/cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* dark overlay */
+.android-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* keep text visible */
+.android-card h3,
+.android-card p {
+  position: relative;
+  z-index: 1;
+}
+.android-card:hover::before {
+    left: 0;
+}
+.android-card:hover {
+    color: white;
+    box-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #007BFF;
+
+    transform: scale(1.05);
+}
+.android-card {
+    animation: pulseGlow 2s infinite;
+}
+.cloud-card {
+  background: url("images/cloud.jpg") no-repeat center center/cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* dark overlay */
+.cloud-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* keep text visible */
+.cloud-card h3,
+.cloud-card p {
+  position: relative;
+  z-index: 1;
+}
+.cloud-card:hover {
+    color: white;
+    box-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #007BFF;
+
+    transform: scale(1.05);
+}
+.cloud-card {
+    animation: pulseGlow 2s infinite;
+}
+.rpa-card {
+  background: url("images/rpa.jpg") no-repeat center center/cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* dark overlay */
+.rpa-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* keep text visible */
+.rpa-card h3,
+.rpa-card p {
+  position: relative;
+  z-index: 1;
+}
+.rpa-card:hover::before {
+    left: 0;
+}
+.rpa-card:hover {
+    color: white;
+    box-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #007BFF;
+
+    transform: scale(1.05);
+}
+.rpa-card {
+    animation: pulseGlow 2s infinite;
+}
+.qa-card {
+  background: url("images/qa.jpg") no-repeat center center/cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* dark overlay */
+.qa-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* keep text visible */
+.qa-card h3,
+.qa-card p {
+  position: relative;
+  z-index: 1;
+}
+.qa-card:hover::before {
+    left: 0;
+}
+.qa-card:hover {
+    color: white;
+    box-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #007BFF;
+
+    transform: scale(1.05);
+}
+.qa-card {
+    animation: pulseGlow 2s infinite;
+}
+.software-card {
+  background: url("images/software.jpg") no-repeat center center/cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* dark overlay */
+.software-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* keep text visible */
+.software-card h3,
+.software-card p {
+  position: relative;
+  z-index: 1;
+}
+.software-card:hover::before {
+    left: 0;
+}
+.software-card:hover {
+    color: white;
+    box-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #007BFF;
+
+    transform: scale(1.05);
+}
+.software-card {
+    animation: pulseGlow 2s infinite;
+}
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    border-radius: 30px;
+
+    color: #00e5ff;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    border: 2px solid #00e5ff;
+    background: transparent;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(90deg, #00e5ff, #007BFF);
+    transition: 0.4s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 0;
+}
+.btn:hover {
+    color: white;
+    box-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #007BFF;
+
+    transform: scale(1.05);
+}
+.btn {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 5px #00e5ff;
+    }
+    50% {
+        box-shadow: 0 0 20px #00e5ff;
+    }
+    100% {
+        box-shadow: 0 0 5px #00e5ff;
+    }
+}
+
+.footer {
+  background: #0a0a0a;
+  color: #ccc;
+  padding: 50px 20px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-box {
+  flex: 1;
+  min-width: 250px;
+  font-size: 16px;
+}
+
+.footer-box h2,
+.footer-box h3 {
+  color: #00f7ff;
+  margin-bottom: 15px;
+}
+
+.footer-box p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 2.0;
+}
+
+.footer-box i {
+  margin-right: 8px;
+  color: #00f7ff;
+}
+
+/* Links */
+.footer-box a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+
+.footer-box a:hover {
+  color: #00f7ff;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #222;
+  padding-top: 15px;
+  font-size: 14px;
+}
+/* ===== MOBILE NAVBAR ===== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .logo {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-right: 0;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+}
+/* ===== HEADER RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+  header {
+    padding: 140px 20px 80px;
+  }
+
+  header h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  header p {
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 0 10px;
+  }
+
+}
+@media (max-width: 600px) {
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+}
+/* ===== FOOTER RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-box {
+    min-width: 100%;
+  }
+
+}
+
+
+/* =========================
+   DESKTOP NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 40px;
+
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+
+  z-index: 1000;
+}
+
+.logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* DESKTOP MENU */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00c3ff;
+}
