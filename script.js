@@ -23,32 +23,41 @@ function toggleMenu() {
   }
 }
 
-// ===== SCROLL ANIMATIONS (CARDS FADE IN) =====
-const handleScrollAnimation = () => {
-  const cards = document.querySelectorAll(".card, .step, .project-card, .services-box");
-  cards.forEach(card => {
-    const position = card.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
+// ===== STAGGERED SCROLL-IN ANIMATIONS (INTERSECTION OBSERVER) =====
+document.addEventListener("DOMContentLoaded", () => {
+  const animContainers = document.querySelectorAll(".services, .steps, .portfolio-container, .features, .cards, .bottom-features, .project-details");
 
-    if (position < screenHeight - 80) {
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-      card.style.transition = "all 0.6s ease-out";
-    }
-  });
-};
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px 0px -50px 0px", // triggers slightly before elements enter view
+    threshold: 0.05
+  };
 
-window.addEventListener("scroll", handleScrollAnimation);
-// Run once on load to show elements already in view
-window.addEventListener("DOMContentLoaded", () => {
-  handleScrollAnimation();
-  
-  // Set initial styles for elements to animate
-  const cards = document.querySelectorAll(".card, .step, .project-card, .services-box");
-  cards.forEach(card => {
-    if (card.getBoundingClientRect().top >= window.innerHeight - 80) {
-      card.style.opacity = "0";
-      card.style.transform = "translateY(40px)";
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate children with stagger delay
+        const children = entry.target.querySelectorAll(".card, .step, .project-card, .services-box, .feature-box, .preview-box, .feature");
+        children.forEach((child, index) => {
+          setTimeout(() => {
+            child.style.opacity = "1";
+            child.style.transform = "translateY(0)";
+            child.style.transition = "all 0.8s cubic-bezier(0.25, 1, 0.5, 1)";
+          }, index * 100); // 100ms stagger interval
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  animContainers.forEach(container => {
+    const children = container.querySelectorAll(".card, .step, .project-card, .services-box, .feature-box, .preview-box, .feature");
+    if (children.length > 0) {
+      children.forEach(child => {
+        child.style.opacity = "0";
+        child.style.transform = "translateY(30px)";
+      });
+      observer.observe(container);
     }
   });
 });
